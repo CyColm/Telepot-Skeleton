@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
 from configobj import ConfigObj
-from datetime import datetime
 import os
 
 
@@ -16,9 +15,9 @@ class BotConfig:
         if not self.exist(self.path):
             self.createConfig()
 
-        self.sendAlerts = False
-        self.autoSend = False
-        self.autoSendTime = 30
+        self.sendAlerts = True
+        self.autoSend = True
+        self.autoSendTime = 1800  # seconds (30min)
         self.poll = 25200  # seconds (7h)
 
         # Get sensitive data
@@ -35,13 +34,13 @@ class BotConfig:
     def loadSettings(self):
         # load settings from file to replace default values in MyGlobals
         isRead, sendAlerts = self._getConfig('Alerts', 'sendAlerts', 'bool')
-        self.sendAlerts = sendAlerts if isRead else False
+        self.sendAlerts = sendAlerts if isRead else True
 
         isRead, autoSend = self._getConfig('Alerts', 'autoSend', 'bool')
-        self.autoSend = autoSend if isRead else False
+        self.autoSend = autoSend if isRead else True
 
         isRead, autoSendTime = self._getConfig('Alerts', 'autoSendTime', 'int')
-        self.autoSendTime = autoSendTime if isRead else 30
+        self.autoSendTime = autoSendTime if isRead else 1800
 
         isRead, poll = self._getConfig('Bot', 'poll', 'int')
         self.poll = poll if isRead else 25200
@@ -89,8 +88,8 @@ class BotConfig:
 
         config['Alerts'] = {
             'sendAlerts': 1,
-            'autoSend': 0,
-            'autoSendTime': 30
+            'autoSend': 1,
+            'autoSendTime': 1800
         }
         config['Bot'] = {
             'poll': 25200,

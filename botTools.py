@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+import os
+
 
 class BotTools:
     """
@@ -33,7 +35,9 @@ class BotTools:
 
     def example2(self):
         try:
-            return True, ("file.png", self.sendPicture)
+            path = os.path.abspath(os.path.dirname(__file__))
+            return True, (open(path + '/docs/last2Hours.jpg', 'rb'),
+                          self.sendPicture)
         except Exception:
             return False, "KO"
 
