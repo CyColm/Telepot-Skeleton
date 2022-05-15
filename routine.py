@@ -8,11 +8,10 @@ import telepot
 
 class Routine():
     """
-    Routine class that describe routine action needed
+    Routine class that describes routine action needed
     """
-    def __init__(self, config, data, tools):
+    def __init__(self, config, tools):
         self.botConfig = config
-        self.botData = data
         self.botTools = tools
         self.bot = telepot.Bot(self.botConfig.TOKEN)
 

@@ -40,7 +40,7 @@ if __name__ == "__main__":
         )
     ])
 
-    monitoring = Routine(config, data, tools)
+    monitoring = Routine(config, tools)
     process = Process(
         target=monitoring.routine,
         daemon=True
