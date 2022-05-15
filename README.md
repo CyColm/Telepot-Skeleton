@@ -54,17 +54,12 @@ Then start using it !
 
 ## Screenshots
 
-On start
+---------- On start -------------------------------------------- Test of each menu ------------------------------- Back button ----------
+
 
 ![chat1](/docs/chat1.jpg)
-
-Test of each menu
-
 ![chat2](/docs/chat2.jpg)
 ![chat3](/docs/chat3.jpg)
-
-Back button
-
 ![chat4](/docs/chat4.jpg)
 
 
